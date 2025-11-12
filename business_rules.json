@@ -1,0 +1,63 @@
+{
+  "business_rules": {
+    "max_boards_per_game": 4,
+    "max_tier_for_multi_board": 500,
+    "min_hours_before_game": 1,
+    "max_hours_before_game": 168,
+    "restricted_states": [
+      "AZ", "TN", "MD", "LA", "WA", 
+      "SC", "MT", "ID", "VT", "CT", "RI"
+    ]
+  },
+  "reach_rules": {
+    "base_reach": {
+      "social_buzz": 0.65,
+      "event_intensity": 0.60,
+      "alpha": 0.50,
+      "bias_50": 1.30,
+      "bias_100": 1.60,
+      "min_fill": 0.75
+    },
+    "hype_surge": {
+      "social_buzz": 0.80,
+      "fill_rate": 0.80,
+      "alpha": 0.70,
+      "bias_50": 1.40,
+      "bias_100": 1.80,
+      "extra_premium_boards": 1
+    },
+    "recovery": {
+      "fill_rate": 0.65,
+      "time_to_fill": 6.0,
+      "alpha": 0.20,
+      "bias_reset": 1.00,
+      "min_fill": 0.90
+    },
+    "ops_cooldown": {
+      "ops_load": 0.70,
+      "alpha": 0.20
+    },
+    "reach_balance": {
+      "lower": 0.30,
+      "upper": 0.45,
+      "adjustment": 0.10
+    },
+    "quiet_hours": {
+      "start": 23,
+      "end": 7,
+      "alpha": 0.10
+    }
+  },
+  "model_config": {
+    "confidence_threshold": 0.65,
+    "min_expected_fill_rate": 0.40,
+    "feature_weights": {
+      "user_interest": 0.25,
+      "timing": 0.20,
+      "competition": 0.15,
+      "historical": 0.20,
+      "platform": 0.10,
+      "game_importance": 0.10
+    }
+  }
+}

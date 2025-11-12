@@ -1,0 +1,186 @@
+{
+  "dashboard": {
+    "title": "Board Operations Agent with Reach Mode",
+    "version": 2,
+    "panels": [
+      {
+        "title": "Current Reach Mode",
+        "type": "stat",
+        "gridPos": {"x": 0, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "reach_current_mode",
+            "legendFormat": "{{mode}}"
+          }
+        ]
+      },
+      {
+        "title": "Current Alpha",
+        "type": "gauge",
+        "gridPos": {"x": 6, "y": 0, "w": 6, "h": 4},
+        "targets": [
+          {
+            "expr": "reach_current_alpha"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {"value": 0.2, "color": "green"},
+                {"value": 0.5, "color": "yellow"},
+                {"value": 0.7, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "Reach Ratio",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 0, "w": 12, "h": 4},
+        "targets": [
+          {
+            "expr": "reach_ratio",
+            "legendFormat": "Premium Tier Ratio"
+          }
+        ],
+        "yaxes": [
+          {"format": "percentunit", "min": 0, "max": 1}
+        ]
+      },
+      {
+        "title": "Social Buzz & Event Intensity",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 4, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "reach_social_buzz",
+            "legendFormat": "Social Buzz"
+          },
+          {
+            "expr": "reach_event_intensity",
+            "legendFormat": "Event Intensity"
+          }
+        ]
+      },
+      {
+        "title": "Fill Rate Metrics",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 4, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "reach_fill_rate_24h",
+            "legendFormat": "24h Fill Rate"
+          },
+          {
+            "expr": "current_average_fill_rate",
+            "legendFormat": "Current Fill Rate"
+          }
+        ]
+      },
+      {
+        "title": "Reach Mode Distribution",
+        "type": "piechart",
+        "gridPos": {"x": 0, "y": 10, "w": 8, "h": 6},
+        "targets": [
+          {
+            "expr": "sum by (mode) (reach_current_mode)",
+            "legendFormat": "{{mode}}"
+          }
+        ]
+      },
+      {
+        "title": "Operational Load",
+        "type": "gauge",
+        "gridPos": {"x": 8, "y": 10, "w": 4, "h": 6},
+        "targets": [
+          {
+            "expr": "reach_ops_load"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "min": 0,
+            "max": 1,
+            "thresholds": {
+              "steps": [
+                {"value": 0.5, "color": "green"},
+                {"value": 0.7, "color": "yellow"},
+                {"value": 0.85, "color": "red"}
+              ]
+            }
+          }
+        }
+      },
+      {
+        "title": "Premium Board Creation",
+        "type": "graph",
+        "gridPos": {"x": 12, "y": 10, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "rate(reach_extra_premium_boards_total[1h])",
+            "legendFormat": "Extra Premium Boards/hr"
+          }
+        ]
+      },
+      {
+        "title": "Proposals Generated",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 16, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "rate(proposals_generated_total[5m])"
+          }
+        ]
+      },
+      {
+        "title": "Approval Rate",
+        "type": "stat",
+        "gridPos": {"x": 12, "y": 16, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "proposals_approved_total / proposals_submitted_total"
+          }
+        ]
+      },
+      {
+        "title": "Average Efficiency",
+        "type": "gauge",
+        "gridPos": {"x": 18, "y": 16, "w": 6, "h": 6},
+        "targets": [
+          {
+            "expr": "avg(board_efficiency)"
+          }
+        ]
+      },
+      {
+        "title": "Decision Cycle Latency",
+        "type": "graph",
+        "gridPos": {"x": 0, "y": 22, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "histogram_quantile(0.95, decision_cycle_duration_seconds)"
+          }
+        ]
+      },
+      {
+        "title": "Model Confidence",
+        "type": "heatmap",
+        "gridPos": {"x": 12, "y": 22, "w": 12, "h": 6},
+        "targets": [
+          {
+            "expr": "prediction_confidence"
+          }
+        ]
+      }
+    ],
+    "refresh": "30s",
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    }
+  }
+}
