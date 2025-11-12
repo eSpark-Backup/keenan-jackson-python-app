@@ -185,6 +185,32 @@ Example key libraries:
 fastapi, uvicorn, pyjwt, prometheus-client, pytest, aiohttp, httpx
 ```
 
+## Build & Run Instructions
+
+### Build Docker Image
+
+```txt
+docker build -t board-operations-agent .
+```
+
+### Run Container
+
+```txt
+docker run -d \
+  -p 8080:8080 \
+  -e JWT_SECRET=mysecretkey \
+  -e DECISION_CYCLE_HOURS=2 \
+  --name board-agent \
+  board-operations-agent
+```
+
+### Verify API
+
+```txt
+Swagger Docs: http://localhost:8080/docs
+Metrics: http://localhost:8080/metrics
+```
+
 ---
 
 ## 📚 License
