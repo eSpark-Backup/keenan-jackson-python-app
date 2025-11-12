@@ -123,34 +123,34 @@ pytest -v
 
 ---
 
-## 🧰 Setup and Run
+## Setup and Run
 
-### 1️⃣ Install dependencies
+### Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Run the API server
+### Run the API server
 
 ```bash
 uvicorn api_server:app --host 0.0.0.0 --port 8080 --reload
 ```
 
-### 3️⃣ View metrics (Prometheus endpoint)
+### View metrics (Prometheus endpoint)
 
 ```bash
 http://localhost:8080/metrics
 ```
 
-### 4️⃣ Open Grafana Dashboard
+### Open Grafana Dashboard
 
 - Configure Prometheus as source
 - Import `Board Operations Agent` dashboard JSON
 
 ---
 
-## 🧠 Reach Mode Engine
+## Reach Mode Engine
 
 Reach Mode adapts engagement dynamically based on platform performance:
 
@@ -165,7 +165,7 @@ Reach Mode adapts engagement dynamically based on platform performance:
 
 ---
 
-## 🧩 File Descriptions
+## File Descriptions
 
 | File | Description |
 |------|-------------|
@@ -175,7 +175,7 @@ Reach Mode adapts engagement dynamically based on platform performance:
 
 ---
 
-## 🧱 Requirements
+## Requirements
 
 Refer to the `requirements.txt` file for dependencies.
 
@@ -213,6 +213,6 @@ Metrics: http://localhost:8080/metrics
 
 ---
 
-## 📚 License
+## License
 
 © 2025 Square Trivia. All Rights Reserved.
