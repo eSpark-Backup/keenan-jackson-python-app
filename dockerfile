@@ -1,5 +1,5 @@
 # ============================================================
-# 🧠 Board Operations Agent - Square Trivia
+# Board Operations Agent - Square Trivia
 # FastAPI + Prometheus + JWT + Reach Mode (Production Build)
 # ============================================================
 
