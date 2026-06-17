@@ -24,7 +24,7 @@ pytest==8.3.3
 pytest-asyncio==0.23.6
 
 # Logging & Utilities
-python-dotenv==1.0.1
+python-dotenv==1.2.2
 colorlog==6.8.2
 
 # Optional: For timestamps & advanced date handling
